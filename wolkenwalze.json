@@ -1,26 +1,36 @@
 {
-   "initialSteps": [
-      "13fd4e2a-496c-456e-903c-1dffbcd9ce47",
-      "e90a03c6-c04c-47fd-8d13-cfb205c82a0f"
-   ],
-   "steps": [
-      {
-         "id": "13fd4e2a-496c-456e-903c-1dffbcd9ce47",
-         "type": "pod-kill",
-         "params": {
-            "name-pattern": "nginx-.*",
-            "namespace-pattern": "default"
-         },
-         "nextSteps": []
+  "initialSteps": [
+    "51431145-5b5b-4e9e-beb5-dfb0cf682db4",
+    "e90a03c6-c04c-47fd-8d13-cfb205c82a0f"
+  ],
+  "steps": [
+    {
+      "id": "51431145-5b5b-4e9e-beb5-dfb0cf682db4",
+      "type": "sleep",
+      "params": {
+        "time": "30s"
       },
-      {
-         "id": "e90a03c6-c04c-47fd-8d13-cfb205c82a0f",
-         "type": "http-monitor",
-         "params": {
-            "target": "http://localhost:30000/",
-            "time": "2m"
-         },
-         "nextSteps": []
-      }
-   ]
+      "nextSteps": [
+        "13fd4e2a-496c-456e-903c-1dffbcd9ce47"
+      ]
+    },
+    {
+      "id": "13fd4e2a-496c-456e-903c-1dffbcd9ce47",
+      "type": "pod-kill",
+      "params": {
+        "name-pattern": "nginx-.*",
+        "namespace-pattern": "default"
+      },
+      "nextSteps": []
+    },
+    {
+      "id": "e90a03c6-c04c-47fd-8d13-cfb205c82a0f",
+      "type": "http-monitor",
+      "params": {
+        "target": "http://localhost:30000/",
+        "time": "2m"
+      },
+      "nextSteps": []
+    }
+  ]
 }
