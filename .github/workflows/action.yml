@@ -20,7 +20,7 @@ jobs:
       - name: Run Wolkenwalze
         run: |
           git clone https://github.com/wolkenwalze/engine.git
-          go run engine/main.go
+          cd engine && go build -o wolkenwalze . && cd .. && ./engine/wolkenwalze
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
