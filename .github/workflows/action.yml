@@ -17,10 +17,12 @@ jobs:
         run: kubectl apply -f demo.yml
       - name: Install Go
         uses: actions/setup-go@v3
-      - name: Run Wolkenwalze
+      - name: Download Wolkenwalze
         run: |
           wget https://github.com/wolkenwalze/engine/releases/download/v0.0.1/engine_0.0.1_Linux_x86_64.tar.gz
           tar -xvzf engine_0.0.1_Linux_x86_64.tar.gz
+      - name: Run Wolkenwalze
+        run: |
           ./engine
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
