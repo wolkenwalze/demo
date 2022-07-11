@@ -1,0 +1,17 @@
+name: Demo
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Create multi-node KinD cluster
+        uses: wolkenwalze/actions/kind@main
+      - name: Run script
+        run: ./demo.sh
