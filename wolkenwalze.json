@@ -1,0 +1,26 @@
+{
+   "initialSteps": [
+      "13fd4e2a-496c-456e-903c-1dffbcd9ce47",
+      "e90a03c6-c04c-47fd-8d13-cfb205c82a0f"
+   ],
+   "steps": [
+      {
+         "id": "13fd4e2a-496c-456e-903c-1dffbcd9ce47",
+         "type": "pod-kill",
+         "params": {
+            "name-pattern": "nginx-.*",
+            "namespace-pattern": "default"
+         },
+         "nextSteps": []
+      },
+      {
+         "id": "e90a03c6-c04c-47fd-8d13-cfb205c82a0f",
+         "type": "http-monitor",
+         "params": {
+            "target": "http://localhost:30000/",
+            "time": "10s"
+         },
+         "nextSteps": []
+      }
+   ]
+}
