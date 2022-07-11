@@ -18,7 +18,7 @@
          "type": "http-monitor",
          "params": {
             "target": "http://localhost:30000/",
-            "time": "10s"
+            "time": "2m"
          },
          "nextSteps": []
       }
