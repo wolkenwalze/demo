@@ -26,6 +26,11 @@ jobs:
       - name: Run Wolkenwalze
         run: |
           ./engine
+      - name: Generate summary
+        if: always()
+        run: |
+          URL="https://wolkenwalze.github.io/ui/#$(cat wolkenwalze.json | base64 -w 0)"
+          echo "[Click here to analyze your results with the Wolkenwalze UI](${URL})" >>$GITHUB_STEP_SUMMARY
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         if: always()
